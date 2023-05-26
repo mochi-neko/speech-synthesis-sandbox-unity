@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.mochineko.relent": "https://github.com/mochi-neko/Relent.git?path=/Assets/Mochineko/Relent#0.2.0",
+    "com.mochineko.relent.extensions.newtonsoft-json": "https://github.com/mochi-neko/Relent.git?path=/Assets/Mochineko/Relent.Extensions/NewtonsofJson#0.2.0",
+    "com.mochineko.relent.extensions.unitask": "https://github.com/mochi-neko/Relent.git?path=/Assets/Mochineko/Relent.Extensions/UniTask#0.2.0",
+    "com.mochineko.voicevox-api": "https://github.com/mochi-neko/VOICEVOX-API-unity.git?path=/Assets/Mochineko/VOICEVOX_API#0.2.2",
+    "com.mochineko.koeiromap-api": "https://github.com/mochi-neko/koeiromap-api-unity.git?path=/Assets/Mochineko/KoeiromapAPI#0.1.1",
+    "com.mochineko.simple-audio-codec-unity": "https://github.com/mochi-neko/simple-audio-codec-unity.git?path=/Assets/Mochineko/SimpleAudioCodec#0.2.0",
+    "com.naudio.core": "https://github.com/mochi-neko/simple-audio-codec-unity.git?path=/Assets/NAudio/NAudio.Core#0.2.0",
+    "com.boundfoxstudios.fluentassertions": "https://github.com/BoundfoxStudios/fluentassertions-unity.git#upm",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.13",
     "com.unity.ide.visualstudio": "2.0.14",

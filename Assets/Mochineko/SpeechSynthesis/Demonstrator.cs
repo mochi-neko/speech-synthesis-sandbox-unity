@@ -44,7 +44,7 @@ namespace Mochineko.SpeechSynthesis
         [SerializeField, Range(-3f, 3f)]
         private float koeiromapSpeakerY = 0f;
 
-        [SerializeField, Range(-3f, 3f)]
+        [SerializeField]
         private Style koeiromapStyle = Style.Talk;
 
         [SerializeField]

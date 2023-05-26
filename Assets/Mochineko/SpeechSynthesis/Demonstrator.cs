@@ -293,8 +293,12 @@ namespace Mochineko.SpeechSynthesis
 
             if (audioClip != null)
             {
+                await UniTask.SwitchToMainThread();
+                
                 UnityEngine.Object.Destroy(audioClip);
             }
+            
+            await UniTask.SwitchToThreadPool();
 
             try
             {

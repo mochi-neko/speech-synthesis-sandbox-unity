@@ -33,6 +33,9 @@ namespace Mochineko.SpeechSynthesis
         private string voicevoxBaseURL = "http://127.0.0.1:50021";
 
         [SerializeField]
+        private string coeiroinkBasesURL = "http://127.0.0.1:50031";
+
+        [SerializeField]
         private int voicevoxSpeakerId = 0;
 
         [SerializeField, Range(-3f, 3f)]
@@ -61,11 +64,6 @@ namespace Mochineko.SpeechSynthesis
         private void Awake()
         {
             Assert.IsNotNull(audioSource);
-        }
-
-        private void Start()
-        {
-            UpdateDevices();
         }
 
         private void OnDestroy()
@@ -145,6 +143,12 @@ namespace Mochineko.SpeechSynthesis
             switch (synthesisBackend)
             {
                 case SynthesisBackend.VoiceVox:
+                    VoiceVoxBaseURL.BaseURL = voicevoxBaseURL;
+                    await SynthesizeSpeechByVoicevoxAsync(cancellationToken);
+                    break;
+                
+                case SynthesisBackend.Coeiroink:
+                    VoiceVoxBaseURL.BaseURL = coeiroinkBasesURL;
                     await SynthesizeSpeechByVoicevoxAsync(cancellationToken);
                     break;
 
@@ -160,8 +164,6 @@ namespace Mochineko.SpeechSynthesis
         private async UniTask SynthesizeSpeechByVoicevoxAsync(CancellationToken cancellationToken)
         {
             await UniTask.SwitchToThreadPool();
-
-            VoiceVoxBaseURL.BaseURL = voicevoxBaseURL;
 
             var createQueryResult = await QueryCreationAPI.CreateQueryAsync(
                 HttpClient,
@@ -237,7 +239,7 @@ namespace Mochineko.SpeechSynthesis
                     cancellationToken,
                     speakerX: koeiromapSpeakerX,
                     speakerY: koeiromapSpeakerY,
-                    style: Style.Talk
+                    style: koeiromapStyle
                 );
 
             Stream stream;
@@ -325,6 +327,8 @@ namespace Mochineko.SpeechSynthesis
         private async UniTask PlayByDirectSoundAsync(Stream stream, CancellationToken cancellationToken)
         {
             directSoundDevice?.Dispose();
+            
+            UpdateDevices();
             
             directSoundDevice = new DirectSoundOut(device: directSoundDevices[directSoundDeviceID].Guid);
             var reader = new WaveFileReader(stream);

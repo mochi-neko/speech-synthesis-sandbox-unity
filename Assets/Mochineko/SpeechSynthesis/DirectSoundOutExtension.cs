@@ -24,7 +24,7 @@ namespace Mochineko.SpeechSynthesis
                 
                 device.Stop();
             }
-            catch (OperationCanceledException exception)
+            catch (OperationCanceledException)
             {
                 device.Stop();
             }

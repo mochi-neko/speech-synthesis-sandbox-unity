@@ -24,7 +24,7 @@ namespace Mochineko.SpeechSynthesis
         private string serif = string.Empty;
 
         [SerializeField]
-        private SynthesisBackend synthesisBackend = SynthesisBackend.VoiceVox;
+        private SynthesisBackend synthesisBackend = SynthesisBackend.Voicevox;
 
         [SerializeField]
         private PlayerBackend playerBackend = PlayerBackend.AudioSource;
@@ -142,7 +142,7 @@ namespace Mochineko.SpeechSynthesis
         {
             switch (synthesisBackend)
             {
-                case SynthesisBackend.VoiceVox:
+                case SynthesisBackend.Voicevox:
                     VoiceVoxBaseURL.BaseURL = voicevoxBaseURL;
                     await SynthesizeSpeechByVoicevoxAsync(cancellationToken);
                     break;

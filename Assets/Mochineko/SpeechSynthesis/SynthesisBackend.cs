@@ -3,7 +3,7 @@ namespace Mochineko.SpeechSynthesis
 {
     internal enum SynthesisBackend
     {
-        VoiceVox,
+        Voicevox,
         Coeiroink,
         Koeiromap,
     }
